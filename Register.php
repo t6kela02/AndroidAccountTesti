@@ -1,7 +1,7 @@
 <?php
     require("password.php");
 
-    $connect = mysqli_connect("den1.mssql8.gear.host", "testiaccountit", "Wz2M7!?9TEBN", "testiaccountit");
+    $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
     $name = $_POST["name"];
     $age = $_POST["age"];
