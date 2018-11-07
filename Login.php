@@ -1,5 +1,5 @@
 <?php
-    require("password.php");
+    
 
     $con = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");//("my_host", "my_user", "my_password", "my_database");
 
