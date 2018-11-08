@@ -13,8 +13,6 @@
     mysqli_stmt_store_result($statement);
     //mysqli_stmt_bind_result($statement, $user_id, $name, $username, $age, $password);
     $statement->bind_result($user_id, $name, $username, $age, $password);
-    
-    echo json_encode($name);
 
     $response = array();
     $response["success"] = false;  
