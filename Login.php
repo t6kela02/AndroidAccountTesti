@@ -1,7 +1,7 @@
 <?php
     
 
-    $con = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");//("my_host", "my_user", "my_password", "my_database");
+    $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");//("my_host", "my_user", "my_password", "my_database");
 
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -11,7 +11,7 @@
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($user_id, $name, $username, $age, $password);
+    mysqli_stmt_bind_result($statement, $user_id, $name, $username, $age, $password);
     //$statement->bind_result($user_id, $name, $username, $age, $password);
 
     $response = array();
