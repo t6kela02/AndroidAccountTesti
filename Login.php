@@ -11,18 +11,16 @@
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $user_id, $name, $username, $age, $password);
+    mysqli_stmt_bind_result($statement, $colUserID, $colName, $colUsername, $colAge, $colPassword);
     
     $response = array();
-    $response["success"] = true;  
+    $response["success"] = false;  
     
     while(mysqli_stmt_fetch($statement)){
         
         $response["success"] = true;  
-        $response["name"] = $name;
-        $response["age"] = $age;
-        $response["username"] = $username;
-        $response["password"] = $password;
+        $response["name"] = $colName;
+        $response["age"] = $colAge;
     }
 
     echo json_encode($response);
