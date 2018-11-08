@@ -11,7 +11,7 @@
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $colUserID, $colName, $colUsername, $colAge, $colPassword);
+    mysqli_stmt_bind_result($user_id, $name, $username, $age, $password);
     
     $response = array();
     $response["success"] = false;  
@@ -19,8 +19,8 @@
     while(mysqli_stmt_fetch($statement)){
         
         $response["success"] = true;  
-        $response["name"] = $colName;
-        $response["age"] = $colAge;
+        $response["name"] = $name;
+        $response["age"] = $age;
     }
 
     echo json_encode($response);
