@@ -14,7 +14,7 @@
     mysqli_stmt_bind_result($statement, $user_id, $name, $username, $age, $password);
     
     $response = array();
-    $response["success"] = false;  
+    $response["success"] = true;  
     
     while(mysqli_stmt_fetch($statement)){
         
