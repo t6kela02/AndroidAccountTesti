@@ -11,8 +11,7 @@
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($user_id, $name, $username, $age, $password);
-    //$statement->bind_result($user_id, $name, $username, $age, $password);
+    mysqli_stmt_bind_result($statement, $user_id, $name, $username, $age, $password);
 
     $response = array();
     $response["success"] = false;  
