@@ -17,7 +17,8 @@
     $response["success"] = false;  
     
     while(mysqli_stmt_fetch($statement)){
-        $response["success"] = true;  
+        $response["success"] = true;
+        $response["user_id"] = $user_id;
         $response["name"] = $name;
         $response["age"] = $age;
         $response["username"] = $username;
