@@ -3,10 +3,11 @@
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
     $user_id = $_POST["user_id"];
+    $seconds = $_POST["seconds"];
     $beacon_name = $_POST["beacon_name"];
      
-    $statement = mysqli_prepare($connect, "INSERT INTO data (seconds, beacon_name) VALUES (?, ?)");
-    mysqli_stmt_bind_param($statement, "is", $seconds, $beaconm_name);
+    $statement = mysqli_prepare($connect, "INSERT INTO data (user_id, seconds, beacon_name) VALUES (?, ?, ?)");
+    mysqli_stmt_bind_param($statement, "is", $user_id, $seconds, $beaconm_name);
     mysqli_stmt_execute($statement);
     mysqli_stmt_close($statement);     
    
