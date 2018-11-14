@@ -16,8 +16,7 @@
     
     while(mysqli_stmt_fetch($statement)){
         $response["success"] = true;  
-        $response["seconds"] = $statement;
     }
     
-    echo json_encode($response);
+    echo json_encode($statement);
 ?>
