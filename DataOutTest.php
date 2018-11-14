@@ -4,7 +4,7 @@
     
     //$user_id = $_POST["user_id"];
 
-    $sql = "SELECT * FROM data WHERE beacon_name='%s'",mysql_real_escape_string($_POST['beacon_name'])));
+    $sql = "SELECT * FROM data WHERE beacon_name='%s'",mysql_real_escape_string($_POST['beacon_name']);
 
     $result = mysqli_query($connect, $sql);
 
