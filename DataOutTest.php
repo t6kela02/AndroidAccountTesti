@@ -2,11 +2,13 @@
     
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
-    $user_id = $_POST["user_id"];
+    //$user_id = $_POST["user_id"];
 
     $sql = "SELECT * FROM data WHERE user_id = ?";
-    mysqli_stmt_bind_param($sql, "i", $user_id);
-    mysqli_stmt_execute($sql);
+    $stmt = mysqli_prepare($sql);
+    $stmt->bind_param("i", $_POST['user_id']);
+    $stmt->execute();
+
     $result = mysqli_query($connect, $sql);
 
     $json_array = array();
