@@ -16,12 +16,12 @@
     
 
 
-    while ($row = mysql_fetch_array($statement, MYSQL_ASSOC)) {
-          
-        echo json_encode($statement);
+    $rows = array();
+    while($r = mysqli_fetch_assoc($statement)) {
+        $rows[] = $r;
     }
+    echo json_encode($response, $rows);
 
-    mysql_free_result($statement);
     
     //echo json_encode($response);
 ?>
