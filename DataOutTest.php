@@ -8,8 +8,11 @@ mysql_select_db('accountit') or die('Could not select database');
 $user_id = 2;
 
 // Performing SQL query
-$query = 'SELECT * FROM data WHERE user_id = 2';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
+$statement = mysqli_prepare('SELECT * FROM data WHERE user_id = ?');
+$statement->bind_param("i", $user_id);
+$statement->execute();
+
+$result = mysql_query($statement) or die('Query failed: ' . mysql_error());
 
 // Printing results in HTML
 echo "<table>\n";
