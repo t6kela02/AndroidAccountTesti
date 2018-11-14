@@ -4,7 +4,7 @@
     
     //$user_id = $_POST["user_id"];
 
-    $sql = "SELECT * FROM data WHERE beacon_name='Keltainen';
+    $sql = "SELECT * FROM data WHERE beacon_name="Keltainen";
 
     $result = mysqli_query($connect, $sql);
 
