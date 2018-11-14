@@ -7,9 +7,12 @@
     $result = mysqli_query($connect, $sql);
 
     $json_array = array();
+
+    $json_array["success"] = false;  
     
     while($row = mysqli_fetch_assoc($result))
     {
+        $json_array["success"] = true;  
         $json_array[] = $row;
     }
     
