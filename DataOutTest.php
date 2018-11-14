@@ -20,10 +20,10 @@
       $response["success"] = true;
       while ($line = mysql_fetch_array($statement, MYSQL_ASSOC)) {
         foreach ($line as $col_value) {
-            echo json_encode($col_value . '<br />');
+            echo json_encode($response, $col_value . '<br />');
         }
       }
      }
     
-    echo json_encode($response);
+    //echo json_encode($response);
 ?>
