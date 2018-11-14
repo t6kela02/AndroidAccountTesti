@@ -18,7 +18,7 @@
 
     while ($row = mysql_fetch_array($statement, MYSQL_ASSOC)) {
           
-        echo json_encode("seconds: %s  beacon_name: %s", $row["seconds"], $row["beacon_name"]);
+        echo json_encode($statement);
     }
 
     mysql_free_result($statement);
