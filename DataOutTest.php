@@ -14,16 +14,19 @@ $statement->execute();
 
 $result = mysql_query($statement) or die('Query failed: ' . mysql_error());
 
+$response = array();
+
 // Printing results in HTML
-echo "<table>\n";
+$response = "<table>\n";
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    echo "\t<tr>\n";
+    $response = "\t<tr>\n";
     foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
+        $response = "\t\t<td>$col_value</td>\n";
     }
-    echo "\t</tr>\n";
+    $response = "\t</tr>\n";
 }
-echo "</table>\n";
+$response = "</table>\n";
+echo json_encode($response);
 
 // Free resultset
 mysql_free_result($result);
