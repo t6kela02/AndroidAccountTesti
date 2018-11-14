@@ -8,20 +8,16 @@
     mysqli_stmt_bind_param($statement, "i", $user_id);
     mysqli_stmt_execute($statement);
     
-    //mysqli_stmt_store_result($statement);
-    //mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
+    mysqli_stmt_store_result($statement);
+    mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
     
     $response = array();
-    $response["success"] = true;  
+    $response["success"] = false;  
     
-
-
-    $rows = array();
-    while($r = mysqli_fetch_assoc($statement)) {
-        $rows[] = $r;
+    while(mysqli_stmt_fetch($statement)){
+        $response["success"] = true;  
+        $response["seconds"] = $statement;
     }
-    echo json_encode($rows);
-
     
-    //echo json_encode($response);
+    echo json_encode($response);
 ?>
