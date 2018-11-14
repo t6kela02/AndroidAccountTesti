@@ -3,7 +3,7 @@
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
     
-    $sql = "SELECT * FROM data";
+    $sql = "SELECT * FROM data WHERE user_id = 2";
     $result = mysqli_query($connect, $sql);
 
     $json_array = array();
