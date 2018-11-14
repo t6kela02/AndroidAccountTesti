@@ -9,7 +9,7 @@
     $stmt->bind_param("i", $_POST['user_id']);
     $stmt->execute();
 
-    $result = mysqli_query($connect, $sql);
+    $result = mysqli_query($connect, $stmt);
 
     $json_array = array();
 
