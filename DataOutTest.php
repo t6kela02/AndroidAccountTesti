@@ -1,34 +1,24 @@
 <?php
-// Connecting, selecting database
-$link = mysql_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i")
-    or die('Could not connect: ' . mysql_error());
-echo 'Connected successfully';
-mysql_select_db('accountit') or die('Could not select database');
-
-//$user_id = $_POST["user_id"];
-
-// Performing SQL query
-$statement = mysqli_prepare('SELECT * FROM data');
-
-$result = mysql_query($statement) or die('Query failed: ' . mysql_error());
-
-$response = array();
-
-// Printing results in HTML
-$response = "<table>\n";
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    $response = "\t<tr>\n";
-    foreach ($line as $col_value) {
-        $response = "\t\t<td>$col_value</td>\n";
+    
+    $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
+    
+    $user_id = $_POST["user_id"];
+    
+    $statement = mysqli_prepare($connect, "SELECT * FROM data WHERE user_id = ?");
+    mysqli_stmt_bind_param($statement, "i", $user_id);
+    mysqli_stmt_execute($statement);
+    
+    $json_array = array();
+    
+    $response = array();
+    $response["success"] = false;  
+    
+    while($row = mysqli_fetch_assoc($statement))
+    {
+        $json_array[] = $row;
     }
-    $response = "\t</tr>\n";
-}
-$response = "</table>\n";
-echo $response;
-
-// Free resultset
-mysql_free_result($result);
-
-// Closing connection
-mysql_close($link);
+    
+    echo '<pre>';
+    print_r($json_array);
+    echo '</pre>';
 ?>
