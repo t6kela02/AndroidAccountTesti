@@ -24,7 +24,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
     $response = "\t</tr>\n";
 }
 $response = "</table>\n";
-echo json_encode($response);
+echo $response;
 
 // Free resultset
 mysql_free_result($result);
