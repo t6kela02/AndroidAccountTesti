@@ -14,16 +14,14 @@
     $response = array();
     $response["success"] = false;  
     
+
+
+    while ($row = mysql_fetch_array($statement, MYSQL_ASSOC)) {
+        $response["success"] = true;  
+        echo json_encode("seconds: %s  beacon_name: %s", $row["seconds"], $row["beacon_name"]);
+    }
+
+    mysql_free_result($statement);
     
-    
-    while(mysqli_stmt_fetch($statement)){
-      $response["success"] = true;
-      while ($line = mysql_fetch_array($statement, MYSQL_ASSOC)) {
-        foreach ($line as $response) {
-            echo json_encode($response . '<br />');
-        }
-      }
-     }
-    
-    //echo json_encode($response);
+    echo json_encode($response);
 ?>
