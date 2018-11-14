@@ -4,10 +4,7 @@
     
     //$user_id = $_POST["user_id"];
 
-    $sql = "SELECT * FROM data WHERE (user_id) VALUES (?)";
-    $stmt = mysqli_prepare($sql);
-    $stmt->bind_param("i", $_POST['user_id']);
-    $stmt->execute();
+    $sql = "SELECT * FROM data";
 
     $result = mysqli_query($connect, $sql);
 
