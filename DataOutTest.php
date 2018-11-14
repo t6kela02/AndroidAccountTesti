@@ -9,7 +9,7 @@
     mysqli_stmt_execute($statement);
     
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
+    //mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
     
     $response = array();
     $response["success"] = true;  
