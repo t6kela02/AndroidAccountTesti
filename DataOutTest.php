@@ -5,7 +5,7 @@ $link = mysql_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i")
 echo 'Connected successfully';
 mysql_select_db('accountit') or die('Could not select database');
 
-$user_id = 2;
+$user_id = '2';
 
 // Performing SQL query
 $statement = mysqli_prepare('SELECT * FROM data WHERE user_id = ?');
