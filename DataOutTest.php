@@ -2,8 +2,11 @@
     
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
-    
-    $sql = "SELECT * FROM data WHERE user_id = 2";
+    $user_id = $_POST["user_id"];
+
+    $sql = "SELECT * FROM data WHERE user_id = ?";
+    mysqli_stmt_bind_param($sql, "i", $user_id);
+    mysqli_stmt_execute($sql);
     $result = mysqli_query($connect, $sql);
 
     $json_array = array();
