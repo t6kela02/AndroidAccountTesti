@@ -12,16 +12,16 @@
     mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
     
     $response = array();
-    $response["success"] = false;  
+    $response["success"] = true;  
     
 
 
     while ($row = mysql_fetch_array($statement, MYSQL_ASSOC)) {
-        $response["success"] = true;  
+          
         echo json_encode("seconds: %s  beacon_name: %s", $row["seconds"], $row["beacon_name"]);
     }
 
     mysql_free_result($statement);
     
-    echo json_encode($response);
+    //echo json_encode($response);
 ?>
