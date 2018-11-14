@@ -5,12 +5,10 @@ $link = mysql_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i")
 echo 'Connected successfully';
 mysql_select_db('accountit') or die('Could not select database');
 
-$user_id = $_POST["user_id"];
+//$user_id = $_POST["user_id"];
 
 // Performing SQL query
-$statement = mysqli_prepare('SELECT * FROM data WHERE user_id = ?');
-$statement->bind_param("i", $user_id);
-$statement->execute();
+$statement = mysqli_prepare('SELECT * FROM data');
 
 $result = mysql_query($statement) or die('Query failed: ' . mysql_error());
 
