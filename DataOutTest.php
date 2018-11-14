@@ -4,7 +4,7 @@
     
     //$user_id = $_POST["user_id"];
 
-    $sql = "SELECT * FROM data WHERE user_id='%f'", $_POST['user_id'];
+    $sql = "SELECT * FROM data WHERE user_id=%f", $_POST['user_id'];
 
     $result = mysqli_query($connect, $sql);
 
