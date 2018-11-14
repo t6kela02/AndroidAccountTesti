@@ -1,22 +1,28 @@
 <?php
-    
-    $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
-    
-    $user_id = $_POST["user_id"];
-    
-    $statement = mysqli_prepare($connect, "SELECT * FROM data WHERE user_id = ?");
-    mysqli_stmt_bind_param($statement, "i", $user_id);
-    mysqli_stmt_execute($statement);
-    
-    mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $data_id, $user_id, $seconds, $beacon_name);
-    
-    $response = array();
-    $response["success"] = false;  
-    
-    while(mysqli_stmt_fetch($statement)){
-        $response["success"] = true;  
+// Connecting, selecting database
+$link = mysql_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i")
+    or die('Could not connect: ' . mysql_error());
+echo 'Connected successfully';
+mysql_select_db('accountit') or die('Could not select database');
+
+// Performing SQL query
+$query = 'SELECT * FROM data';
+$result = mysql_query($query) or die('Query failed: ' . mysql_error());
+
+// Printing results in HTML
+echo "<table>\n";
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
     }
-    
-    echo json_encode($statement);
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
+
+// Free resultset
+mysql_free_result($result);
+
+// Closing connection
+mysql_close($link);
 ?>
