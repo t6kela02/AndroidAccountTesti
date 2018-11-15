@@ -46,7 +46,7 @@
     $response["success"] = false;
     
 
-    while($row = $assoc[])
+    while($row = mysqli_fetch_assoc($assoc))
     {
         $response["success"] = true;  
         $response[] = $row;
