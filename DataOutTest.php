@@ -41,8 +41,12 @@
     while($row = mysqli_stmt_fetch($statement)){
         $response["success"] = true;
         //$response[] = $row;
-        $response[$row]["seconds"] = $seconds;
-        $response[$row]["beacon_name"] = $beacon_name;
+        foreach($row)
+        {
+            $response["seconds"] = $seconds;
+            $response["beacon_name"] = $beacon_name;
+        }
+        
         
     }
     
