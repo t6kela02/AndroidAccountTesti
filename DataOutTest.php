@@ -38,7 +38,7 @@
     $response = array();
     $response["success"] = false;  
     
-    while($row = mysqli_fetch_assoc($statement)){
+    while($row = mysqli_stmt_fetch($statement)){
         $response["success"] = true;
         $response[] = $row;
         
