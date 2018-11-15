@@ -4,10 +4,10 @@
     
     $user_id = $_POST["user_id"];
 
-    $statement = mysqli_query($connect, "SELECT * FROM data WHERE user_id = 2");
+    $statement = mysqli_query($connect, "SELECT * FROM data WHERE user_id = ?");
     //$sql = "SELECT * FROM data WHERE (user_id) VALUES (?)";
-    //mysqli_stmt_bind_param($statement, "i", $user_id);
-    //mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_param($statement, "i", $user_id);
+    mysqli_stmt_execute($statement);
 
     //$result = mysqli_query($connect, $sql);
     $result = $statement;
