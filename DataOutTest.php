@@ -13,13 +13,15 @@
 
     $response = array();
     $response["success"] = false;
+    $responsearr = array();
 
     while($row = $result->fetch_assoc())
     {
         $response["success"] = true;  
-        $response[] = $row;
+        $responsearr[] = $row;
     }
 
+    $response[] = $responsearr;
     echo json_encode($response);
 
 ?>
