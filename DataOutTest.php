@@ -17,7 +17,7 @@
     while($row = $result->fetch_assoc())
     {
         $response["success"] = true;  
-        $response["data"][] = array($row);
+        $response["data"][] = $row;
     }
 
     echo json_encode($response);
