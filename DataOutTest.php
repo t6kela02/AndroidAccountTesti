@@ -2,9 +2,11 @@
     
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
-    //$user_id = $_POST["user_id"];
+    $user_id = 2;
 
-    $sql = "SELECT * FROM data WHERE user_id=%f", $_POST['user_id'];
+    $sql = "SELECT * FROM data WHERE (user_id) VALUES (?)";
+    mysqli_stmt_bind_param($sql, "i", $user_id);
+    mysqli_stmt_execute($sql);
 
     $result = mysqli_query($connect, $sql);
 
