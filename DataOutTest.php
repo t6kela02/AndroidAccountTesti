@@ -7,7 +7,7 @@
     $selectUser = $con->prepare("SELECT * FROM `data` WHERE `user_id` = ?");
     $selectUser->bind_param('i', $user_id);
     $selectUser->execute();
-    $result = $selectUser->bind_result($seconds, $beacon_name);//get_result();
+    $result = $selectUser->bind_result($id, $user_id, $seconds, $beacon_name);//get_result();
 
     //$stmt->bind_result($id, $first_name, $last_name, $username);
 
@@ -17,7 +17,9 @@
     while($row = $result->fetch_assoc())
     {
         $response["success"] = true;  
-        $response[] = $row;
+        //$response[] = $row;
+        $response["seconds"] = $seconds;
+        $response["beacon_name"] = $beacon_name;
     }
 
     echo json_encode($response);
