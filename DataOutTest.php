@@ -46,7 +46,7 @@
     $response["success"] = false;
     
 
-    while($row = $result->fetch_assoc();)
+    while($row = $result->fetch_assoc())
     {
         $response["success"] = true;  
         $response[] = $row;
