@@ -46,7 +46,11 @@
     $response["success"] = false;
     $response[] = $assoc;
 
-    
+    while($row = mysqli_fetch_assoc($assoc))
+    {
+        $response["success"] = true;  
+        $response[] = $row;
+    }
 
     /*
     while($row = mysqli_stmt_fetch($statement)){
