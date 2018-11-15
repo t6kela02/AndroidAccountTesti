@@ -10,7 +10,7 @@
     //mysqli_stmt_execute($statement);
 
     //$result = mysqli_query($connect, $sql);
-    $result = mysqli_query($statement);
+    $result = $statement;
 
     $json_array = array();
 
