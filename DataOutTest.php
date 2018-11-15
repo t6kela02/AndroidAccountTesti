@@ -1,5 +1,5 @@
 <?php
-    
+    /*
     $connect = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
     
     $user_id = $_POST["user_id"];
@@ -23,4 +23,27 @@
     }
     
     echo json_encode($json_array);
+    */
+
+    $con = mysqli_connect("den1.mysql3.gear.host", "accountit", "Ru8tmg~976-i", "accountit");
+    $user_id = $_POST["user_id"];
+    
+    $statement = mysqli_prepare($con, "SELECT * FROM data WHERE user_id = ?");
+    mysqli_stmt_bind_param($statement, "i", $user_id);
+    mysqli_stmt_execute($statement);
+    
+    mysqli_stmt_store_result($statement);
+    mysqli_stmt_bind_result($statement, $id, $user_id, $seconds, $beacon_name);
+    
+    $response = array();
+    $response["success"] = false;  
+    
+    while(mysqli_fetch_assoc($statement)){
+        $response["success"] = true;
+        $response["seconds"] = $seconds;
+        $response["beacon_name"] = $beacon_name;
+        
+    }
+    
+    echo json_encode($response);
 ?>
