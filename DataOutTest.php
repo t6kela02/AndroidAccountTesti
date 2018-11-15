@@ -17,9 +17,7 @@
     while($row = $result->fetch_assoc())
     {
         $response["success"] = true;  
-        //$response[] = $row;
-        $response["seconds"] = $row['seconds'];
-        $response["beacon_name"] = $row['beacon_name'];
+        $response[] = $row;
     }
 
     echo json_encode($response);
