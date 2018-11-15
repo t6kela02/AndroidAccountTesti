@@ -40,7 +40,7 @@
     
     while($row = mysqli_stmt_fetch($statement)){
         $response["success"] = true;
-        $response[] = $row;
+        //$response[] = $row;
         $response["seconds"] = $seconds;
         $response["beacon_name"] = $beacon_name;
         
