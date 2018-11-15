@@ -40,17 +40,13 @@
     $selectUser->bind_param('i', $user_id);
     $selectUser->execute();
     $result = $selectUser->get_result();
-    //$assoc = $result->fetch_assoc();
+    $assoc = $result->fetch_assoc();
 
     $response = array();
     $response["success"] = false;
+    $response[] = $assoc;
 
-    while($row = fetch_assoc($result)){
-        $response["success"] = true;
-        //$response[] = $row;
-        $response[] = $row;
-        
-    }
+    
 
     /*
     while($row = mysqli_stmt_fetch($statement)){
