@@ -44,9 +44,9 @@
 
     $response = array();
     $response["success"] = false;
-    $response[] = $assoc;
+    
 
-    while($row = mysqli_fetch_assoc($assoc))
+    while($row = $assoc[])
     {
         $response["success"] = true;  
         $response[] = $row;
