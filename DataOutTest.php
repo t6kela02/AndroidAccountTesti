@@ -38,14 +38,13 @@
     $response = array();
     $response["success"] = false;  
     
-    while($row = mysqli_stmt_fetch($statement)){
+    while($row = mysqli_stmt_fetch_assoc($statement)){
         $response["success"] = true;
         //$response[] = $row;
-        foreach($row)
-        {
-            $response["seconds"] = $seconds;
-            $response["beacon_name"] = $beacon_name;
-        }
+        
+        $response["seconds"] = $seconds;
+        $response["beacon_name"] = $beacon_name;
+       
         
         
     }
