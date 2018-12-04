@@ -12,17 +12,7 @@
 </head>
 <body>
 	<div id="main">
-		<?php
-			$get_data = "SELECT * FROM data";
-			$query_data = mysqli_query($conn, $get_data);
-			
-			while($row_data = mysqli_fetch_array($query_data)){
-				$beacon_name = $row_data['beacon_name'];
-				$seconds = $row_data['seconds'];
-				
-				echo $beacon_name . "<br>";
-			}
-		?>
+		<p>text</p>
 	</div>
 </body>
 </html>
